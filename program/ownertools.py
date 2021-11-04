@@ -13,7 +13,6 @@ from pyrogram.types import Message
 from config import (
     BOT_USERNAME,
     GROUP_SUPPORT,
-    HEROKU_URL,
     OWNER_ID,
     U_BRANCH,
     UPSTREAM_REPO,
