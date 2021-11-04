@@ -14,7 +14,6 @@ from config import (
     BOT_USERNAME,
     GROUP_SUPPORT,
 )
-from helpers.dbtools import main_broadcast_handler
 
 
 # Stats Of Your Bot
