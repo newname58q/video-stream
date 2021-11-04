@@ -72,15 +72,6 @@ async def vplay(client, m: Message):
             ]
         ]
     )
-    keyboard = InlineKeyboardMarkup(
-        [
-            [
-                InlineKeyboardButton(
-                    "🗑 ᴋᴀᴘᴀᴛ", callback_data="cls",
-                )
-            ]
-        ]
-    )
 
     replied = m.reply_to_message
     chat_id = m.chat.id
