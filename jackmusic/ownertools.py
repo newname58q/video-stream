@@ -14,7 +14,7 @@ from config import (
     BOT_USERNAME,
     GROUP_SUPPORT,
 )
-from zaidmusic.song import get_text, humanbytes
+from jackmusic.song import get_text, humanbytes
 from helpers.filters import command
 from helpers.database import db
 from helpers.dbtools import main_broadcast_handler
