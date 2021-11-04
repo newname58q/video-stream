@@ -13,4 +13,5 @@ requests
 psutil
 future
 wget
+heroku3
 yt-dlp
