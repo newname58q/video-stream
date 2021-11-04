@@ -292,8 +292,8 @@ async def vstream(client, m: Message):
                     await loser.delete()
                     await m.reply_photo(
                         photo=f"{IMG_2}",
-                        caption=f"💡 **[Live stream video]({link}) started.**\n\n💭 **Chat:** `{chat_id}`\n💡 **Status:** `Playing`\n🎧 **Request by:** {m.from_user.mention()}",
+                        caption=f"💡 **[ᴄᴀɴʟı ᴀᴋış ᴠɪᴅᴇᴏꜱᴜ]({link}) ʙᴀşʟᴀᴅı.**\n\n💭 **ꜱᴏʜʙᴇᴛ:** `{chat_id}`\n💡 **ᴅᴜʀᴜᴍ:** `çᴀʟıʏᴏʀ`\n🎧 **ᴛᴀʟᴇᴘ ᴇᴅᴇɴ:** {m.from_user.mention()}",
                         reply_markup=keyboard,
                     )
                 except Exception as ep:
-                    await m.reply_text(f"🚫 error: `{ep}`")
+                    await m.reply_text(f"🚫 ʜᴀᴛᴀ: `{ep}`")
