@@ -8,6 +8,7 @@ import asyncio
 from pyrogram import Client, filters
 from pyrogram.types import Message
 
+from driver.veez import user as USER
 from pyrogram import client as veez
 from config import SUDO_USERS
 
@@ -24,9 +25,9 @@ async def broadcast(_, message: Message):
             await wtf.edit("ʟᴜᴛꜰᴇɴ ʏᴀʏɪɴɪ ʙᴀꜱʟᴀᴛᴍᴀᴋ ɪᴄɪɴ ʙɪʀ ᴍᴇꜱᴀᴊᴀ ᴄᴇᴠᴀᴘ ᴠᴇʀɪɴ!")
             return
         lmao = message.reply_to_message.text
-        async for dialog in veez.iter_dialogs():
+        async for dialog in USER.iter_dialogs():
             try:
-                await veez.send_message(dialog.chat.id, lmao)
+                await USER.send_message(dialog.chat.id, lmao)
                 sent = sent + 1
                 await wtf.edit(
                     f"`ʙʀᴏᴀᴅᴄᴀꜱᴛ...` \n\n**ɢᴏɴᴅᴇʀɪʟᴅɪ:** `{sent}` ᴄʜᴀᴛ \n**ʙᴀꜱᴀʀɪꜱɪᴢ:** {failed} ᴄʜᴀᴛ"
