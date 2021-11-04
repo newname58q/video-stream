@@ -1,34 +1,25 @@
-# Copyright (C) 2021 By TaliaProject
-# Originally written by Anonim on github
-# Broadcast function
-
-
-import asyncio
-
 from pyrogram import Client, filters
-from pyrogram.types import Dialog, Chat, Message
 from pyrogram.errors import UserAlreadyParticipant
-
-from config import SUDO_USERS
+import asyncio
+from Efsanestar.config import SUDO_USERS
 
 @Client.on_message(filters.command(["gcast"]))
-async def broadcast(_, message: Message):
+async def bye(client, message):
     sent=0
     failed=0
-    if message.from_user.id not in SUDO_USERS:
-        return
-    else:
-        wtf = await message.reply("`Yayın başlatılıyor...`")
+    if message.from_user.id in SUDO_USERS:
+        lol = await message.reply("Gcast Başlatılıyor")
         if not message.reply_to_message:
-            await wtf.edit("Yayını başlatmak için lütfen bir iletiyi yanıtlayın!")
+            await lol.edit("Gcast efendim herhangi bir kısa mesajı yanıtlayın")
             return
-        lmao = message.reply_to_message.text
-        async for dialog in USER.iter_dialogs():
+        msg = message.reply_to_message.text
+        async for dialog in client.iter_dialogs():
             try:
-                await USER.send_message(dialog.chat.id, lmao)
+                await client.send_message(dialog.chat.id, msg)
                 sent = sent+1
-                await wtf.edit(f"`Yayın...` \n\n**Gönderileceği yer:** `{sent}` chats \n**Başarısız oldu:** {failed} chats")
-                await asyncio.sleep(3)
+                await lol.edit(f"Gcasting.. Gönderilen: {sent} sohbet. Başarısız: {failed} sohbet.")
             except:
                 failed=failed+1
-        await message.reply_text(f"`Gcast başarıyla` \n\n**Gönderileceği yer:** `{sent}` chats \n**Başarısız oldu:** {failed} chats")
+                await lol.edit(f"Gcasting.. Gönderilen: {sent} sohbet. Başarısız: {failed} sohbet.")
+            await asyncio.sleep(3)
+        await message.reply_text(f"Gcasted iletisi {sent} Sohbet. Başarısız {failed} Sohbet.")
