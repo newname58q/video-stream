@@ -74,7 +74,7 @@ async def cbcmds(_, query: CallbackQuery):
         f"""✨ **Merhaba [{query.message.chat.first_name}](tg://user?id={query.message.chat.id}) !**
 
 
-⚡ __Powered by {BOT_NAME} A.I__""",
+⚡ __ᴄʀᴇᴀᴛᴏʀ by {BOT_NAME} @jackdanielssx""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
