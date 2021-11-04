@@ -24,7 +24,7 @@ async def broadcast(_, message: Message):
             await wtf.edit("please reply to a message to start broadcast!")
             return
         lmao = message.reply_to_message.text
-        async for dialog in veez.iter_dialogs():
+        async for dialog in USER.iter_dialogs():
             try:
                 await veez.send_message(dialog.chat.id, lmao)
                 sent = sent+1
