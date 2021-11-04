@@ -13,8 +13,6 @@ from pyrogram.types import Message
 from config import (
     BOT_USERNAME,
     GROUP_SUPPORT,
-    U_BRANCH,
-    UPSTREAM_REPO,
 )
 from zaidmusic.song import get_text, humanbytes
 from helpers.filters import command
