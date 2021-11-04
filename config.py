@@ -22,8 +22,6 @@ SUDO_USERS = list(map(int, getenv("SUDO_USERS").split()))
 COMMAND_PREFIXES = list(getenv("COMMAND_PREFIXES", "/ ! .").split())
 ALIVE_IMG = getenv("ALIVE_IMG", "https://telegra.ph/file/1067ac279400aa6b80770.jpg")
 DURATION_LIMIT = int(getenv("DURATION_LIMIT", "60"))
-# fill with your id as the owner of the bot
-OWNER_ID = int(os.environ.get("OWNER_ID"))
 # just fill with True or False (optional)
 BROADCAST_AS_COPY = bool(os.environ.get("BROADCAST_AS_COPY", "False"))
 IMG_1 = getenv("IMG_1", "https://telegra.ph/file/ac6c6dfadc815ec533571.jpg")
