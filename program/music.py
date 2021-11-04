@@ -61,7 +61,7 @@ async def oynat(_, m: Message):
                     text="✨ ɢʀᴏᴜᴘ", url=f"https://t.me/{GROUP_SUPPORT}"
                 ),
                 InlineKeyboardButton(
-                    text="🌻 kanal", url=f"https://t.me/{UPDATES_CHANNEL}"
+                    text="🌻 ᴋᴀɴᴀʟ", url=f"https://t.me/{UPDATES_CHANNEL}"
                 ),
             ]
         ]
@@ -71,7 +71,7 @@ async def oynat(_, m: Message):
     chat_id = m.chat.id
     if replied:
         if replied.audio or replied.voice:
-            suhu = await replied.reply("📥 **şarkı indiriliyor...**")
+            suhu = await replied.reply("📥 **şᴀʀᴋı ɪɴᴅɪʀɪʟɪʏᴏʀ...**")
             dl = await replied.download()
             link = replied.link
             if replied.audio:
@@ -86,7 +86,7 @@ async def oynat(_, m: Message):
                 await suhu.delete()
                 await m.reply_photo(
                     photo=f"{IMG_1}",
-                    caption=f"💡 **parça sıraya eklendi **\n\n🏷 **adı:** [{songname}]({link})\n💭 **Sohbet:** `{chat_id}`\n🎧 **talep eden:** {m.from_user.mention()}\n🔢 **At position »** `{pos}`",
+                    caption=f"💡 **ᴘᴀʀçᴀ ꜱıʀᴀʏᴀ ᴇᴋʟᴇɴᴅɪ **\n\n🏷 **ᴀᴅı:** [{songname}]({link})\n💭 **ꜱᴏʜʙᴇᴛ:** `{chat_id}`\n🎧 **ᴛᴀʟᴇᴘ ᴇᴅᴇɴ:** {m.from_user.mention()}\n🔢 **At position »** `{pos}`",
                     reply_markup=keyboard,
                 )
             else:
@@ -101,26 +101,26 @@ async def oynat(_, m: Message):
                 await suhu.delete()
                 await m.reply_photo(
                     photo=f"{IMG_2}",
-                    caption=f"💡 **music akışı başlatıldı.**\n\n🏷 **isim:** [{songname}]({link})\n💭 **Sohbet:** `{chat_id}`\n💡 **durum:** `Playing`\n🎧 **Talep eden:** {m.from_user.mention()}",
+                    caption=f"💡 **ᴍᴜꜱɪᴄ ᴀᴋışı ʙᴀşʟᴀᴛıʟᴅı.**\n\n🏷 **ɪꜱɪᴍ:** [{songname}]({link})\n💭 **ꜱᴏʜʙᴇᴛ:** `{chat_id}`\n💡 **ᴅᴜʀᴜᴍ:** `Playing`\n🎧 **ᴛᴀʟᴇᴘ ᴇᴅᴇɴ:** {m.from_user.mention()}",
                     reply_markup=keyboard,
                 )
         else:
             if len(m.command) < 2:
                 await m.reply(
-                    "» reply to an **audio file** or **give something to search.**"
+                    "» ʙɪʀ ᴄᴇᴠᴀᴘ **ꜱᴇꜱ ᴅᴏꜱʏᴀꜱı** ᴠᴇʏᴀ **ᴀʀᴀᴍᴀᴋ ɪçɪɴ ʙɪʀ şᴇʏ ᴠᴇʀ.**"
                 )
             else:
-                suhu = await m.reply("🔎 **aranıyor...**")
+                suhu = await m.reply("🔎 **ᴀʀᴀɴıʏᴏʀ...**")
                 query = m.text.split(None, 1)[1]
                 search = ytsearch(query)
                 if search == 0:
-                    await suhu.edit("❌ **sonuç bulunamadı.**")
+                    await suhu.edit("❌ **ꜱᴏɴᴜç ʙᴜʟᴜɴᴀᴍᴀᴅı.**")
                 else:
                     songname = search[0]
                     url = search[1]
                     veez, ytlink = await ytdl(url)
                     if veez == 0:
-                        await suhu.edit(f"❌ yt-dl sorunları algılandı")
+                        await suhu.edit(f"❌ yt-dl ꜱᴏʀᴜɴʟᴀʀı ᴀʟɢıʟᴀɴᴅı")
                     else:
                         if chat_id in QUEUE:
                             pos = add_to_queue(
@@ -129,7 +129,7 @@ async def oynat(_, m: Message):
                             await suhu.delete()
                             await m.reply_photo(
                                 photo=f"{IMG_1}",
-                                caption=f"💡 **Parça sıraya eklendi **\n\n🏷 **isim:** [{songname}]({url})\n💭 **sohbet:** `{chat_id}`\n🎧 **Talep eden:** {m.from_user.mention()}\n🔢 **At position »** `{pos}`",
+                                caption=f"💡 **ᴘᴀʀçᴀ ꜱıʀᴀʏᴀ ᴇᴋʟᴇɴᴅɪ **\n\n🏷 **ɪꜱɪᴍ:** [{songname}]({url})\n💭 **ꜱᴏʜʙᴇᴛ:** `{chat_id}`\n🎧 **ᴛᴀʟᴇᴘ ᴇᴅᴇɴ:** {m.from_user.mention()}\n🔢 **At position »** `{pos}`",
                                 reply_markup=keyboard,
                             )
                         else:
@@ -145,36 +145,36 @@ async def oynat(_, m: Message):
                                 await suhu.delete()
                                 await m.reply_photo(
                                     photo=f"{IMG_2}",
-                                    caption=f"💡 **music akışı başladı.**\n\n🏷 **isim:** [{songname}]({url})\n💭 **sohbet:** `{chat_id}`\n💡 **durum:** `Playing`\n🎧 **Talep eden:** {m.from_user.mention()}",
+                                    caption=f"💡 **music akışı başladı.**\n\n🏷 **ɪꜱɪᴍ:** [{songname}]({url})\n💭 **ꜱᴏʜʙᴇᴛ:** `{chat_id}`\n💡 **ᴅᴜʀᴜᴍ:** `çᴀʟıʏᴏʀ`\n🎧 **Talep eden:** {m.from_user.mention()}",
                                     reply_markup=keyboard,
                                 )
                             except Exception as ep:
-                                await m.reply_text(f"🚫 hata: `{ep}`")
+                                await m.reply_text(f"🚫 ʜᴀᴛᴀ: `{ep}`")
 
     else:
         if len(m.command) < 2:
             await m.reply(
-                "» reply to an **audio file** or **give something to search.**"
+                "» şᴜ ᴀɴ ᴄᴇᴠᴀᴘ ᴠᴇʀ **ꜱᴇꜱ ᴅᴏꜱʏᴀꜱı** ᴠᴇʏᴀ **ᴀʀᴀᴍᴀᴋ ɪçɪɴ ʙɪʀ şᴇʏ ᴠᴇʀ.**"
             )
         else:
             suhu = await m.reply("🔎 **arıyor...**")
             query = m.text.split(None, 1)[1]
             search = ytsearch(query)
             if search == 0:
-                await suhu.edit("❌ **sonuç bulunamadı.**")
+                await suhu.edit("❌ **ꜱᴏɴᴜç ʙᴜʟᴜɴᴀᴍᴀᴅı.**")
             else:
                 songname = search[0]
                 url = search[1]
                 veez, ytlink = await ytdl(url)
                 if veez == 0:
-                    await suhu.edit(f"❌ yt-dl sorunları algılandı")
+                    await suhu.edit(f"❌ yt-dl ꜱᴏʀᴜɴʟᴀʀı ᴀʟɢıʟᴀɴᴅı")
                 else:
                     if chat_id in QUEUE:
                         pos = add_to_queue(chat_id, songname, ytlink, url, "Audio", 0)
                         await suhu.delete()
                         await m.reply_photo(
                             photo=f"{IMG_1}",
-                            caption=f"💡 **parça sıraya eklendi**\n\n🏷 **isim:** [{songname}]({url})\n💭 **sohbet:** `{chat_id}`\n🎧 **Talep eden:** {m.from_user.mention()}\n🔢 **At position »** `{pos}`",
+                            caption=f"💡 **ᴘᴀʀçᴀ ꜱıʀᴀʏᴀ ᴇᴋʟᴇɴᴅɪ**\n\n🏷 **ɪꜱɪᴍ:** [{songname}]({url})\n💭 **ꜱᴏʜʙᴇᴛ:** `{chat_id}`\n🎧 **ᴛᴀʟᴇᴘ ᴇᴅᴇɴ:** {m.from_user.mention()}\n🔢 **At position »** `{pos}`",
                             reply_markup=keyboard,
                         )
                     else:
@@ -190,11 +190,11 @@ async def oynat(_, m: Message):
                             await suhu.delete()
                             await m.reply_photo(
                                 photo=f"{IMG_2}",
-                                caption=f"💡 **music akışı başladı.**\n\n🏷 **isim:** [{songname}]({url})\n💭 **sohbet:** `{chat_id}`\n💡 **durum:** `Playing`\n🎧 **Talep eden:** {m.from_user.mention()}",
+                                caption=f"💡 **ᴍᴜꜱɪᴄ ᴀᴋışı ʙᴀşʟᴀᴅı.**\n\n🏷 **ɪꜱɪᴍ:** [{songname}]({url})\n💭 **ꜱᴏʜʙᴇᴛ:** `{chat_id}`\n💡 **ᴅᴜʀᴜᴍ:** `ᴏʏɴᴀᴛıʟᴀɴ`\n🎧 **ᴛᴀʟᴇᴘ ᴇᴅᴇɴ:** {m.from_user.mention()}",
                                 reply_markup=keyboard,
                             )
                         except Exception as ep:
-                            await m.reply_text(f"🚫 hata: `{ep}`")
+                            await m.reply_text(f"🚫 ʜᴀᴛᴀ: `{ep}`")
 
 
 # stream is used for live streaming only
@@ -209,7 +209,7 @@ async def radio(_, m: Message):
                     text="✨ ɢʀᴏᴜᴘ", url=f"https://t.me/{GROUP_SUPPORT}"
                 ),
                 InlineKeyboardButton(
-                    text="🌻 kanal", url=f"https://t.me/{UPDATES_CHANNEL}"
+                    text="🌻 ᴋᴀɴᴀʟ", url=f"https://t.me/{UPDATES_CHANNEL}"
                 ),
             ]
         ]
@@ -220,7 +220,7 @@ async def radio(_, m: Message):
         await m.reply("» give me a live-link/m3u8 url/youtube link to stream.")
     else:
         link = m.text.split(None, 1)[1]
-        suhu = await m.reply("🔄 **akım işleniyor...**")
+        suhu = await m.reply("🔄 **ᴀᴋıᴍ ɪşʟᴇɴɪʏᴏʀ...**")
 
         regex = r"^(https?\:\/\/)?(www\.youtube\.com|youtu\.?be)\/.+"
         match = re.match(regex, link)
@@ -238,7 +238,7 @@ async def radio(_, m: Message):
                 await suhu.delete()
                 await m.reply_photo(
                     photo=f"{IMG_1}",
-                    caption=f"💡 **parça sıraya eklendi **\n\n💭 **sohbet:** `{chat_id}`\n🎧 **Talep eden:** {m.from_user.mention()}\n🔢 **At position »** `{pos}`",
+                    caption=f"💡 **ᴘᴀʀçᴀ ꜱıʀᴀʏᴀ ᴇᴋʟᴇɴᴅɪ **\n\n💭 **ꜱᴏʜʙᴇᴛ:** `{chat_id}`\n🎧 **ᴛᴀʟᴇᴘ ᴇᴅᴇɴ:** {m.from_user.mention()}\n🔢 **At position »** `{pos}`",
                     reply_markup=keyboard,
                 )
             else:
@@ -254,8 +254,8 @@ async def radio(_, m: Message):
                     await suhu.delete()
                     await m.reply_photo(
                         photo=f"{IMG_2}",
-                        caption=f"💡 **[Radio live]({link}) akış başladı.**\n\n💭 **sohbet:** `{chat_id}`\n💡 **durum:** `Playing`\n🎧 **Talep eden:** {m.from_user.mention()}",
+                        caption=f"💡 **[Radio live]({link}) ᴀᴋış ʙᴀşʟᴀᴅı.**\n\n💭 **ꜱᴏʜʙᴇᴛ:** `{chat_id}`\n💡 **ᴅᴜʀᴜᴍ:** `Playing`\n🎧 **ᴛᴀʟᴇᴘ ᴇᴅᴇɴ:** {m.from_user.mention()}",
                         reply_markup=keyboard,
                     )
                 except Exception as ep:
-                    await m.reply_text(f"🚫 hata: `{ep}`")
+                    await m.reply_text(f"🚫 ʜᴀᴛᴀ: `{ep}`")

@@ -52,35 +52,35 @@ async def _human_time_duration(seconds):
 )
 async def start_(client: Client, message: Message):
     await message.reply_text(
-        f"""✨ **Merhabalar {message.from_user.mention()} !**\n
-💭 [{BOT_NAME}](https://t.me/{BOT_USERNAME}) **botu ve asistanı gruba ekleyip güzel flim izleyebilir şarkılar dinleyebilirsiniz**
+        f"""✨ **ᴍᴇʀʜᴀʙᴀʟᴀʀ {message.from_user.mention()} !**\n
+💭 [{BOT_NAME}](https://t.me/{BOT_USERNAME}) **ʙᴏᴛᴜ ᴠᴇ ᴀꜱɪꜱᴛᴀɴı ɢʀᴜʙᴀ ᴇᴋʟᴇʏɪᴘ ɢüᴢᴇʟ ꜰʟɪᴍ ɪᴢʟᴇʏᴇʙɪʟɪʀ şᴀʀᴋıʟᴀʀ ᴅɪɴʟᴇʏᴇʙɪʟɪʀꜱɪɴɪᴢ**
 
-Daha fazla bilgi için aşağıdaki butonları kullanın👇
+ᴅᴀʜᴀ ꜰᴀᴢʟᴀ ʙɪʟɢɪ ɪçɪɴ ᴀşᴀɢıᴅᴀᴋɪ ʙᴜᴛᴏɴʟᴀʀı ᴋᴜʟʟᴀɴıɴ👇
 """,
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "➕ Add me to your Group ➕",
+                        "➕ ʙᴇɴɪ ɢʀᴜʙᴜɴᴀ ᴇᴋʟᴇ ➕",
                         url=f"https://t.me/{BOT_USERNAME}?startgroup=true",
                     )
                 ],
-                [InlineKeyboardButton("❓ Basit bilgi", callback_data="cbhowtouse")],
+                [InlineKeyboardButton("❓ ʙᴀꜱɪᴛ ʙɪʟɢɪ", callback_data="cbhowtouse")],
                 [
-                    InlineKeyboardButton("📚 Komutlar", callback_data="cbcmds"),
-                    InlineKeyboardButton("❤️ Sahip", url=f"https://t.me/{OWNER_NAME}"),
+                    InlineKeyboardButton("📚 ᴋᴏᴍᴜᴛʟᴀʀ", callback_data="cbcmds"),
+                    InlineKeyboardButton("❤️ ꜱᴀʜɪᴘ", url=f"https://t.me/{OWNER_NAME}"),
                 ],
                 [
                     InlineKeyboardButton(
-                        "👥 Official Group", url=f"https://t.me/{GROUP_SUPPORT}"
+                        "👥 ᴏꜰꜰɪᴄɪᴀʟ ɢʀᴏᴜᴘ", url=f"https://t.me/{GROUP_SUPPORT}"
                     ),
                     InlineKeyboardButton(
-                        "📣 Official Channel", url=f"https://t.me/{UPDATES_CHANNEL}"
+                        "📣 ᴏғғɪᴄɪᴀʟ ᴋᴀɴᴀʟ", url=f"https://t.me/{UPDATES_CHANNEL}"
                     ),
                 ],
                 [
                     InlineKeyboardButton(
-                        "🌐 Özel bot yapımı", url="https://t.me/Baykaoss"
+                        "🌐 Öᴢᴇʟ ʙᴏᴛ ʏᴀᴘıᴍı", url="https://t.me/jackdanielssx"
                     )
                 ],
             ]
@@ -100,15 +100,15 @@ async def alive(client: Client, message: Message):
     keyboard = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton("✨ Group", url=f"https://t.me/{GROUP_SUPPORT}"),
+                InlineKeyboardButton("✨ ɢʀᴏᴜᴘ", url=f"https://t.me/{GROUP_SUPPORT}"),
                 InlineKeyboardButton(
-                    "📣 kanal", url=f"https://t.me/{UPDATES_CHANNEL}"
+                    "📣 ᴋᴀɴᴀʟ", url=f"https://t.me/{UPDATES_CHANNEL}"
                 ),
             ]
         ]
     )
 
-    alive = f"**Merhaba {message.from_user.mention()}, ben {BOT_NAME}**\n\n✨ Bot is working normally\n🍀 My Master: [{ALIVE_NAME}](https://t.me/{OWNER_NAME})\n✨ Bot Version: `v{__version__}`\n🍀 Pyrogram Version: `{pyrover}`\n✨ Python Version: `{__python_version__}`\n🍀 PyTgCalls version: `{pytover.__version__}`\n✨ Uptime Status: `{uptime}`\n\n**Thanks for Adding me here, for playing video & music on your Group video chat** ❤"
+    alive = f"**ᴍᴇʀʜᴀʙᴀ {message.from_user.mention()}, ʙᴇɴ {BOT_NAME}**\n\n✨ ʙᴏᴛ ɴᴏʀᴍᴀʟ çᴀʟışıʏᴏʀ\n🍀 ᴄʀᴇᴀᴛᴏʀ: [{ALIVE_NAME}](https://t.me/{OWNER_NAME})\n✨ ʙᴏᴛ ꜱüʀüᴍü: `v{__version__}`\n🍀 ᴘʀᴏɢʀᴀᴍ ᴠᴇʀꜱɪʏᴏɴᴜ: `{pyrover}`\n✨ ᴘʏᴛʜᴏɴ ꜱüʀüᴍü: `{__python_version__}`\n🍀 ᴘʏᴛɢᴄᴀʟʟꜱ ꜱüʀüᴍü: `{pytover.__version__}`\n✨ Çᴀʟışᴍᴀ ꜱüʀᴇꜱɪ: `{uptime}`\n\n**ʙᴇɴɪ ʙᴜʀᴀʏᴀ ᴇᴋʟᴇᴅɪɢɪɴɪᴢ, ɢʀᴜᴘ ɢöʀüɴᴛüʟü ꜱᴏʜʙᴇᴛɪɴɪᴢᴅᴇ ᴠɪᴅᴇᴏ ᴠᴇ ᴍüᴢɪᴋ çᴀʟᴅıɢıɴıᴢ ɪçɪɴ ᴛᴇşᴇᴋᴋüʀʟᴇʀ** ❤"
 
     await message.reply_photo(
         photo=f"{ALIVE_IMG}",
@@ -120,9 +120,9 @@ async def alive(client: Client, message: Message):
 @Client.on_message(command(["ping", f"ping@{BOT_USERNAME}"]) & ~filters.edited)
 async def ping_pong(client: Client, message: Message):
     start = time()
-    m_reply = await message.reply_text("pinging...")
+    m_reply = await message.reply_text("ᴘɪɴɢ...")
     delta_ping = time() - start
-    await m_reply.edit_text("🏓 `PONG!!`\n" f"⚡️ `{delta_ping * 1000:.3f} ms`")
+    await m_reply.edit_text("🏓 `ᴘɪɴɢ!!`\n" f"⚡️ `{delta_ping * 1000:.3f} ms`")
 
 
 @Client.on_message(command(["uptime", f"uptime@{BOT_USERNAME}"]) & ~filters.edited)
@@ -131,42 +131,42 @@ async def get_uptime(client: Client, message: Message):
     uptime_sec = (current_time - START_TIME).total_seconds()
     uptime = await _human_time_duration(int(uptime_sec))
     await message.reply_text(
-        "🤖 bot status:\n"
-        f"• **uptime:** `{uptime}`\n"
-        f"• **start time:** `{START_TIME_ISO}`"
+        "🤖 ʙᴏᴛ ᴅᴜʀᴜᴍᴜ:\n"
+        f"• **çᴀʟışᴍᴀ ꜱüʀᴇꜱɪ:** `{uptime}`\n"
+        f"• **ʙᴀşʟᴀɴɢıç ​​ꜱᴀᴀᴛɪ:** `{START_TIME_ISO}`"
     )
 @Client.on_message(filters.command("help") & ~filters.private & ~filters.channel)
 async def ghelp(_, message: Message):
     await message.reply_text(
-        """ Botun sahibi => @baykaoss
+        """ʙᴏᴛᴜɴ ꜱᴀʜɪʙɪ => @jackdanielssx
 
-🔥 /oynat => istediğin şarkıyı direk dinletir
-🔥 /izlet => istedigin filmi indirip izletir
-🔥 /ara => video indirir
-🔥 /indir => music indirir 
-🔥 /Utag => üyeleri etiketler
-🔥 /Atag => Adminleri etiketler
-🔥 /cancel => etiketi bitir
+🔥 /oynat => ɪꜱᴛᴇᴅɪɢɪɴ şᴀʀᴋıʏı ᴅɪʀᴇᴋ ᴅɪɴʟᴇᴛɪʀ
+🔥 /izlet => ɪꜱᴛᴇᴅɪɢɪɴ ꜰɪʟᴍɪ ɪɴᴅɪʀɪᴘ ɪᴢʟᴇᴛɪʀ
+🔥 /ara => ᴠɪᴅᴇᴏ ɪɴᴅɪʀɪʀ
+🔥 /indir => ᴍᴜꜱɪᴄ ɪɴᴅɪʀɪʀ
+🔥 /Utag => üʏᴇʟᴇʀɪ ᴇᴛɪᴋᴇᴛʟᴇʀ
+🔥 /Atag => ᴀᴅᴍɪɴʟᴇʀɪ ᴇᴛɪᴋᴇᴛʟᴇʀ
+🔥 /cancel => ᴇᴛɪᴋᴇᴛɪ ʙɪᴛɪʀ
 
-NOT : /izlet ve /oynat komutu kendinize ait music ve videoları da oynatır
+ɴᴏᴛ : /izlet ve /oynat ᴋᴏᴍᴜᴛᴜ ᴋᴇɴᴅɪɴɪᴢᴇ ᴀɪᴛ ᴍᴜꜱɪᴄ ᴠᴇ ᴠɪᴅᴇᴏʟᴀʀı ᴅᴀ ᴏʏɴᴀᴛıʀ
 
-🔥 /durdur - seste botu durdurur
-🔥 /devam - durdurulan botu başlatır
-🔥 /atla - şarkı ve video atlar
-🔥 /son - sesten düşer herşeyi durdurur
-🔥 /reload - botu yeniden başlatıp admin listesi yeniler
-🔥 /gel - gruba katılır
-🔥 /git - gruptan çıkar """
+🔥 /durdur - ꜱᴇꜱᴛᴇ ʙᴏᴛᴜ ᴅᴜʀᴅᴜʀᴜʀ
+🔥 /devam - ᴅᴜʀᴅᴜʀᴜʟᴀɴ ʙᴏᴛᴜ ʙᴀşʟᴀᴛıʀ
+🔥 /atla - şᴀʀᴋı ᴠᴇ ᴠɪᴅᴇᴏ ᴀᴛʟᴀʀ
+🔥 /son - ꜱᴇꜱᴛᴇɴ ᴅüşᴇʀ ʜᴇʀşᴇʏɪ ᴅᴜʀᴅᴜʀᴜʀ
+🔥 /reload - ʙᴏᴛᴜ ʏᴇɴɪᴅᴇɴ ʙᴀşʟᴀᴛıᴘ ᴀᴅᴍɪɴ ʟɪꜱᴛᴇꜱɪ ʏᴇɴɪʟᴇʀ
+🔥 /gel - ᴀꜱɪꜱᴛᴀɴ ɢʀᴜʙᴀ ᴋᴀᴛıʟıʀ
+🔥 /git - ᴀꜱɪꜱᴛᴀɴ ɢʀᴜᴘᴛᴀɴ çıᴋᴀʀ """
         )
 
 
 @Client.on_message(filters.command("bot") & ~filters.private & ~filters.channel)
 async def bot(_, message: Message):
     await message.reply_text(
-""" Selamın aleyküm ben geldim lan , hayırdır sorun mu var """
+""" ꜱᴇʟᴀᴍıɴ ᴀʟᴇʏᴋüᴍ ʙᴇɴ ɢᴇʟᴅɪᴍ ʟᴀɴ , ʜᴀʏıʀᴅıʀ ꜱᴏʀᴜɴ ᴍᴜ ᴠᴀʀ """
    )
 @Client.on_message(filters.command("h") & ~filters.private & ~filters.channel)
 async def h(_, message: Message):
     await message.reply_text(
-""" Hodri meydan aslan parçası 😉 """ )
+""" ʜᴏᴅʀɪ ᴍᴇʏᴅᴀɴ ᴀꜱʟᴀɴ ᴘᴀʀçᴀꜱı 😉 """ )
 

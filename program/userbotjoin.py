@@ -39,7 +39,7 @@ async def join_group(client, message):
         )
         return
     await message.reply_text(
-        f"✅ **hop hop geldim laaann**",
+        f"✅ **ʜᴏᴘ ʜᴏᴘ ɢᴇʟᴅɪᴍ ʟᴀᴀᴀɴɴ**",
     )
 
 
@@ -48,7 +48,7 @@ async def join_group(client, message):
 @authorized_users_only
 async def leave_one(client, message):
     try:
-        await USER.send_message(message.chat.id, "✅ siktirip gidiyorum")
+        await USER.send_message(message.chat.id, "✅ ᴋüꜱᴛüᴍ ɢɪᴅɪʏᴏʀᴜᴍ")
         await USER.leave_chat(message.chat.id)
     except BaseException:
         await message.reply_text(
