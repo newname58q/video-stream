@@ -165,11 +165,11 @@ async def vplay(client, m: Message):
                                 await loser.delete()
                                 await m.reply_photo(
                                     photo=f"{IMG_2}",
-                                    caption=f"💡 **video akışı başladı.**\n\n🏷 **isim:** [{songname}]({url})\n💭 **sohbet:** `{chat_id}`\n💡 **durum:** `Playing`\n🎧 **Talep eden:** {m.from_user.mention()}",
+                                    caption=f"💡 **ᴠɪᴅᴇᴏ ᴀᴋışı ʙᴀşʟᴀᴅı.**\n\n🏷 **ɪꜱɪᴍ:** [{songname}]({url})\n💭 **ꜱᴏʜʙᴇᴛ:** `{chat_id}`\n💡 **ᴅᴜʀᴜᴍ:** `Çᴀʟıʏᴏʀ`\n🎧 **ᴛᴀʟᴇᴘ ᴇᴅᴇɴ:** {m.from_user.mention()}",
                                     reply_markup=keyboard,
                                 )
                             except Exception as ep:
-                                await m.reply_text(f"🚫 hata: `{ep}`")
+                                await m.reply_text(f"🚫 ʜᴀᴛᴀ: `{ep}`")
 
     else:
         if len(m.command) < 2:
@@ -196,7 +196,7 @@ async def vplay(client, m: Message):
                         await loser.delete()
                         await m.reply_photo(
                             photo=f"{IMG_1}",
-                            caption=f"💡 **parça sıraya eklendi**\n\n🏷 **isim:** [{songname}]({url})\n💭 **sohbet:** `{chat_id}`\n🎧 **talep eden:** {m.from_user.mention()}\n🔢 **At position »** `{pos}`",
+                            caption=f"💡 **ᴘᴀʀçᴀ ꜱıʀᴀʏᴀ ᴇᴋʟᴇɴᴅɪ**\n\n🏷 **ɪꜱɪᴍ:** [{songname}]({url})\n💭 **ꜱᴏʜʙᴇᴛ:** `{chat_id}`\n🎧 **ᴛᴀʟᴇᴘ ᴇᴅᴇɴ:** {m.from_user.mention()}\n🔢 **At position »** `{pos}`",
                             reply_markup=keyboard,
                         )
                     else:
@@ -210,11 +210,11 @@ async def vplay(client, m: Message):
                             await loser.delete()
                             await m.reply_photo(
                                 photo=f"{IMG_2}",
-                                caption=f"💡 **video akışı başladı.**\n\n🏷 **isim:** [{songname}]({url})\n💭 **sohbet:** `{chat_id}`\n💡 **durum:** `Playing`\n🎧 **Talep eden:** {m.from_user.mention()}",
+                                caption=f"💡 **ᴠɪᴅᴇᴏ ᴀᴋışı ʙᴀşʟᴀᴅı.**\n\n🏷 **ɪꜱɪᴍ:** [{songname}]({url})\n💭 **ꜱᴏʜʙᴇᴛ:** `{chat_id}`\n💡 **ᴅᴜʀᴜᴍ:** `çᴀʟıʏᴏʀ`\n🎧 **ᴛᴀʟᴇᴘ ᴇᴅᴇɴ:** {m.from_user.mention()}",
                                 reply_markup=keyboard,
                             )
                         except Exception as ep:
-                            await m.reply_text(f"🚫 error: `{ep}`")
+                            await m.reply_text(f"🚫 ʜᴀᴛᴀ: `{ep}`")
 
 
 @Client.on_message(command(["vstream", f"vstream@{BOT_USERNAME}"]) & other_filters)
@@ -224,10 +224,10 @@ async def vstream(client, m: Message):
         [
             [
                 InlineKeyboardButton(
-                    text="✨ ɢʀᴏᴜᴘ", url=f"https://t.me/{GROUP_SUPPORT}"
+                    text="✨ ɢʀᴜᴘ", url=f"https://t.me/{GROUP_SUPPORT}"
                 ),
                 InlineKeyboardButton(
-                    text="🌻 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{UPDATES_CHANNEL}"
+                    text="🌻 ᴋᴀɴᴀʟ", url=f"https://t.me/{UPDATES_CHANNEL}"
                 ),
             ]
         ]
@@ -252,7 +252,7 @@ async def vstream(client, m: Message):
                 await m.reply(
                     "» __only 720, 480, 360 allowed__ \n💡 **now streaming video in 720p**"
                 )
-            loser = await m.reply("🔄 **processing stream...**")
+            loser = await m.reply("🔄 **ɪşʟᴇᴍᴇ ᴀᴋışı...**")
         else:
             await m.reply("**/vstream {link} {720/480/360}**")
 
