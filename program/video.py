@@ -68,7 +68,6 @@ async def vplay(client, m: Message):
                 ),
                 InlineKeyboardButton(
                     text="🌻 ᴋᴀɴᴀʟ", url=f"https://t.me/{UPDATES_CHANNEL}"
-                    InlineKeyboardButton("🗑 ᴋᴀᴘᴀᴛ", callback_data="cls"),
                 ),
             ]
         ]
