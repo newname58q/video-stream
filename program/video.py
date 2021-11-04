@@ -64,10 +64,10 @@ async def vplay(client, m: Message):
         [
             [
                 InlineKeyboardButton(
-                    text="✨ ɢʀᴏᴜᴘ", url=f"https://t.me/{GROUP_SUPPORT}"
+                    text="✨ ɢʀᴜᴘ", url=f"https://t.me/{GROUP_SUPPORT}"
                 ),
                 InlineKeyboardButton(
-                    text="🌻 kanal", url=f"https://t.me/{UPDATES_CHANNEL}"
+                    text="🌻 ᴋᴀɴᴀʟ", url=f"https://t.me/{UPDATES_CHANNEL}"
                 ),
             ]
         ]
@@ -77,7 +77,7 @@ async def vplay(client, m: Message):
     chat_id = m.chat.id
     if replied:
         if replied.video or replied.document:
-            loser = await replied.reply("📥 **video indiriliyor...**")
+            loser = await replied.reply("📥 **ᴠɪᴅᴇᴏ ɪɴᴅɪʀɪʟɪʏᴏʀ...**")
             dl = await replied.download()
             link = replied.link
             if len(m.command) < 2:
@@ -89,7 +89,7 @@ async def vplay(client, m: Message):
                 else:
                     Q = 720
                     await loser.edit(
-                        "» __only 720, 480, 360 izin verilir__ \n💡 **şimdi video akışı 720p**"
+                        "» __ꜱᴀᴅᴇᴄᴇ 720, 480, 360 ɪᴢɪɴ ᴠᴇʀɪʟɪʀ__ \n💡 **şɪᴍᴅɪ ᴠɪᴅᴇᴏ ᴀᴋışı 720p**"
                     )
 
             if replied.video:
@@ -102,7 +102,7 @@ async def vplay(client, m: Message):
                 await loser.delete()
                 await m.reply_photo(
                     photo=f"{IMG_1}",
-                    caption=f"💡 **parça sıraya eklendi**\n\n🏷 **isim:** [{songname}]({link})\n💭 **sohbet:** `{chat_id}`\n🎧 **Talep edilen:** {m.from_user.mention()}\n🔢 **At position »** `{pos}`",
+                    caption=f"💡 **ᴘᴀʀçᴀ ꜱıʀᴀʏᴀ ᴇᴋʟᴇɴᴅɪ**\n\n🏷 **ɪꜱɪᴍ:** [{songname}]({link})\n💭 **ꜱᴏʜʙᴇᴛ:** `{chat_id}`\n🎧 **ᴛᴀʟᴇᴘ ᴇᴅɪʟᴇɴ:** {m.from_user.mention()}\n🔢 **At position »** `{pos}`",
                     reply_markup=keyboard,
                 )
             else:
@@ -121,13 +121,13 @@ async def vplay(client, m: Message):
                 await loser.delete()
                 await m.reply_photo(
                     photo=f"{IMG_2}",
-                    caption=f"💡 **video akışı başladı.**\n\n🏷 **isim:** [{songname}]({link})\n💭 **sohbet:** `{chat_id}`\n💡 **durum:** `Playing`\n🎧 **Talep eden:** {m.from_user.mention()}",
+                    caption=f"💡 **ᴠɪᴅᴇᴏ ᴀᴋışı ʙᴀşʟᴀᴅı.**\n\n🏷 **ɪꜱɪᴍ:** [{songname}]({link})\n💭 **ꜱᴏʜʙᴇᴛ:** `{chat_id}`\n💡 **ᴅᴜʀᴜᴍ:** `ᴏʏɴᴜʏᴏʀ`\n🎧 **ᴛᴀʟᴇᴘ ᴇᴅᴇɴ:** {m.from_user.mention()}",
                     reply_markup=keyboard,
                 )
         else:
             if len(m.command) < 2:
                 await m.reply(
-                    "» reply to an **video file** or **give something to search.**"
+                    "» ʙɪʀ ᴄᴇᴠᴀᴘ **ᴠɪᴅᴇᴏ ᴅᴏꜱʏᴀꜱı** ᴠᴇʏᴀ **ᴀʀᴀᴍᴀᴋ ɪçɪɴ ʙɪʀ şᴇʏ ᴠᴇʀ.**"
                 )
             else:
                 loser = await m.reply("🔎 **arıyor...**")
@@ -136,7 +136,7 @@ async def vplay(client, m: Message):
                 Q = 720
                 amaze = HighQualityVideo()
                 if search == 0:
-                    await loser.edit("❌ **sonuç bulunamadı.**")
+                    await loser.edit("❌ **ꜱᴏɴᴜç ʙᴜʟᴜɴᴀᴍᴀᴅı.**")
                 else:
                     songname = search[0]
                     url = search[1]
@@ -151,7 +151,7 @@ async def vplay(client, m: Message):
                             await loser.delete()
                             await m.reply_photo(
                                 photo=f"{IMG_1}",
-                                caption=f"💡 **Parça sıraya eklendi**\n\n🏷 **isim:** [{songname}]({url})\n💭 **sohbet:** `{chat_id}`\n🎧 **Talep eden:** {m.from_user.mention()}\n🔢 **At position »** `{pos}`",
+                                caption=f"💡 **ᴘᴀʀçᴀ ꜱıʀᴀʏᴀ ᴇᴋʟᴇɴᴅɪ**\n\n🏷 **ɪꜱɪᴍ:** [{songname}]({url})\n💭 **ꜱᴏʜʙᴇᴛ:** `{chat_id}`\n🎧 **ᴛᴀʟᴇᴘ ᴇᴅᴇɴ:** {m.from_user.mention()}\n🔢 **At position »** `{pos}`",
                                 reply_markup=keyboard,
                             )
                         else:
