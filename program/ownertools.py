@@ -20,7 +20,6 @@ from config import (
 @Client.on_message(
     filters.private
     & filters.command("broadcast")
-    & filters.user(OWNER_ID)
     & filters.reply
 )
 async def broadcast_handler_open(_, m: Message):
