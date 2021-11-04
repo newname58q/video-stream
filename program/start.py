@@ -28,11 +28,11 @@ __python_version__ = f"{version_info[0]}.{version_info[1]}.{version_info[2]}"
 START_TIME = datetime.utcnow()
 START_TIME_ISO = START_TIME.replace(microsecond=0).isoformat()
 TIME_DURATION_UNITS = (
-    ("week", 60 * 60 * 24 * 7),
-    ("day", 60 * 60 * 24),
-    ("hour", 60 * 60),
-    ("min", 60),
-    ("sec", 1),
+    ("ʜᴀғᴛᴀ", 60 * 60 * 24 * 7),
+    ("ɢüɴ", 60 * 60 * 24),
+    ("ꜱᴀᴀᴛ", 60 * 60),
+    ("ᴅᴀᴋɪᴋᴀ", 60),
+    ("ꜱᴀɴɪʏᴇ", 1),
 )
 
 
