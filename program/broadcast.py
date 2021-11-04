@@ -9,7 +9,6 @@ from pyrogram import Client, filters
 from pyrogram.types import Dialog, Chat, Message
 from pyrogram.errors import UserAlreadyParticipant
 
-from pytgcalls import client as cyber
 from config import SUDO_USERS
 
 @Client.on_message(filters.command(["gcast"]))
