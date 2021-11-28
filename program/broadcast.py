@@ -11,7 +11,6 @@ from pyrogram.types import Message
 from driver.veez import user as USER
 from pyrogram import client as veez
 from config import SUDO_USERS
-from helpers.dbtools import main_broadcast_handler
 
 
 @Client.on_message(filters.command(["gcast"]))
@@ -39,13 +38,3 @@ async def broadcast(_, message: Message):
         await message.reply_text(
             f"`ʙʀᴏᴀᴅᴄᴀꜱᴛ ʙᴀꜱᴀʀɪʟɪ` \n\n**ɢᴏɴᴅᴇʀɪʟᴅɪ:** `{sent}` ᴄʜᴀᴛ \n**ʙᴀꜱᴀʀɪꜱɪᴢ:** {failed} chats"
         )
-
-
-@Client.on_message(
-    filters.private
-    & filters.command("broadcast")
-    & filters.user(OWNER_ID)
-    & filters.reply
-)
-async def broadcast_handler_open(_, m: Message):
-    await main_broadcast_handler(m, db)
