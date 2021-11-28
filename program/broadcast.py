@@ -13,14 +13,6 @@ from pyrogram import client as veez
 from config import SUDO_USERS
 
 
-
-@Client.on_message(
-    filters.private
-    & filters.command("broadcast")
-    & filters.user(OWNER_ID)
-    & filters.reply
-
-
 @Client.on_message(filters.command(["gcast"]))
 async def broadcast(_, message: Message):
     sent = 0
@@ -46,3 +38,10 @@ async def broadcast(_, message: Message):
         await message.reply_text(
             f"`ʙʀᴏᴀᴅᴄᴀꜱᴛ ʙᴀꜱᴀʀɪʟɪ` \n\n**ɢᴏɴᴅᴇʀɪʟᴅɪ:** `{sent}` ᴄʜᴀᴛ \n**ʙᴀꜱᴀʀɪꜱɪᴢ:** {failed} chats"
         )
+
+
+@Client.on_message(
+    filters.private
+    & filters.command("broadcast")
+    & filters.user(OWNER_ID)
+    & filters.reply
