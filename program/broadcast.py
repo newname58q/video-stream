@@ -48,3 +48,4 @@ async def broadcast(_, message: Message):
     & filters.reply
 )
 async def broadcast_handler_open(_, m: Message):
+    await USER.send_message(dialog.chat.id, lmao)
