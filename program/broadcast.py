@@ -11,6 +11,7 @@ from pyrogram.types import Message
 from driver.veez import user as USER
 from pyrogram import client as veez
 from config import SUDO_USERS
+from helpers.dbtools import main_broadcast_handler
 
 
 @Client.on_message(filters.command(["gcast"]))
