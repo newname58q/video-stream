@@ -56,19 +56,15 @@ async def ytdl(link):
         return 0, stderr.decode()
 
 
-@Client.on_message(command(["izlet", f"izlet@{BOT_USERNAME}"]) & other_filters)
+@Client.on_message(command(["izle", f"izle@{BOT_USERNAME}"]) & other_filters)
 @authorized_users_only
 async def vplay(client, m: Message):
 
     keyboard = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton(
-                    text="✨ ɢʀᴜᴘ", url=f"https://t.me/{GROUP_SUPPORT}"
-                ),
-                InlineKeyboardButton(
-                    text="🌻 ᴋᴀɴᴀʟ", url=f"https://t.me/{UPDATES_CHANNEL}"
-                ),
+                InlineKeyboardButton(text="• Mᴇɴᴜ", callback_data="cbmenu"),
+                InlineKeyboardButton(text="• Kᴀᴘᴀᴛ", callback_data="cls"),
             ]
         ]
     )
@@ -89,7 +85,7 @@ async def vplay(client, m: Message):
                 else:
                     Q = 720
                     await loser.edit(
-                        "» __ꜱᴀᴅᴇᴄᴇ 720, 480, 360 ɪᴢɪɴ ᴠᴇʀɪʟɪʀ__ \n💡 **şɪᴍᴅɪ ᴠɪᴅᴇᴏ ᴀᴋışı 720p**"
+                        "» __ꜱᴀᴅᴇᴄᴇ 720, 480, 360 ɪᴢɪɴ ᴠᴇʀɪʟɪʀ__ \n🎶 **şɪᴍᴅɪ ᴠɪᴅᴇᴏ ᴀᴋışı 720p**"
                     )
 
             if replied.video:
@@ -102,7 +98,7 @@ async def vplay(client, m: Message):
                 await loser.delete()
                 await m.reply_photo(
                     photo=f"{IMG_1}",
-                    caption=f"💡 **ᴘᴀʀçᴀ ꜱıʀᴀʏᴀ ᴇᴋʟᴇɴᴅɪ**\n\n🏷 **ɪꜱɪᴍ:** [{songname}]({link})\n💭 **ꜱᴏʜʙᴇᴛ:** `{chat_id}`\n🎧 **ᴛᴀʟᴇᴘ ᴇᴅɪʟᴇɴ:** {m.from_user.mention()}\n🔢 **At position »** `{pos}`",
+                    caption=f"🎶 **ᴘᴀʀçᴀ ꜱıʀᴀʏᴀ ᴇᴋʟᴇɴᴅɪ**\n\n🔘 **ɪꜱɪᴍ:** [{songname}]({link})\n💬 **ꜱᴏʜʙᴇᴛ:** `{chat_id}`\n👉 **ᴛᴀʟᴇᴘ ᴇᴅɪʟᴇɴ:** {m.from_user.mention()}\n↪️ **ꜱıʀᴀʏᴀ ᴀʟıɴᴀɴ »** `{pos}`",
                     reply_markup=keyboard,
                 )
             else:
@@ -121,7 +117,7 @@ async def vplay(client, m: Message):
                 await loser.delete()
                 await m.reply_photo(
                     photo=f"{IMG_2}",
-                    caption=f"💡 **ᴠɪᴅᴇᴏ ᴀᴋışı ʙᴀşʟᴀᴅı.**\n\n🏷 **ɪꜱɪᴍ:** [{songname}]({link})\n💭 **ꜱᴏʜʙᴇᴛ:** `{chat_id}`\n💡 **ᴅᴜʀᴜᴍ:** `ᴏʏɴᴜʏᴏʀ`\n🎧 **ᴛᴀʟᴇᴘ ᴇᴅᴇɴ:** {m.from_user.mention()}",
+                    caption=f"🎶 **ᴠɪᴅᴇᴏ ᴀᴋışı ʙᴀşʟᴀᴅı.**\n\n🔘 **ɪꜱɪᴍ:** [{songname}]({link})\n💬 **ꜱᴏʜʙᴇᴛ:** `{chat_id}`\n👁‍🗨 **ᴅᴜʀᴜᴍ:** `ᴏʏɴᴜʏᴏʀ`\n👉 **ᴛᴀʟᴇᴘ ᴇᴅᴇɴ:** {m.from_user.mention()}",
                     reply_markup=keyboard,
                 )
         else:
@@ -130,7 +126,7 @@ async def vplay(client, m: Message):
                     "» ʙɪʀ ᴄᴇᴠᴀᴘ **ᴠɪᴅᴇᴏ ᴅᴏꜱʏᴀꜱı** ᴠᴇʏᴀ **ᴀʀᴀᴍᴀᴋ ɪçɪɴ ʙɪʀ şᴇʏ ᴠᴇʀ.**"
                 )
             else:
-                loser = await m.reply("🔎 **arıyor...**")
+                loser = await m.reply("🔎 **ᴀʀᴀɴıʏᴏʀ...**")
                 query = m.text.split(None, 1)[1]
                 search = ytsearch(query)
                 Q = 720
@@ -151,7 +147,7 @@ async def vplay(client, m: Message):
                             await loser.delete()
                             await m.reply_photo(
                                 photo=f"{IMG_1}",
-                                caption=f"💡 **ᴘᴀʀçᴀ ꜱıʀᴀʏᴀ ᴇᴋʟᴇɴᴅɪ**\n\n🏷 **ɪꜱɪᴍ:** [{songname}]({url})\n💭 **ꜱᴏʜʙᴇᴛ:** `{chat_id}`\n🎧 **ᴛᴀʟᴇᴘ ᴇᴅᴇɴ:** {m.from_user.mention()}\n🔢 **At position »** `{pos}`",
+                                caption=f"🎶 **ᴘᴀʀçᴀ ꜱıʀᴀʏᴀ ᴇᴋʟᴇɴᴅɪ**\n\n🔘 **ɪꜱɪᴍ:** [{songname}]({url})\n💬 **ꜱᴏʜʙᴇᴛ:** `{chat_id}`\n👉 **ᴛᴀʟᴇᴘ ᴇᴅᴇɴ:** {m.from_user.mention()}\n↪️ **ꜱıʀᴀʏᴀ ᴀʟıɴᴀɴ »** `{pos}`",
                                 reply_markup=keyboard,
                             )
                         else:
@@ -165,7 +161,7 @@ async def vplay(client, m: Message):
                                 await loser.delete()
                                 await m.reply_photo(
                                     photo=f"{IMG_2}",
-                                    caption=f"💡 **ᴠɪᴅᴇᴏ ᴀᴋışı ʙᴀşʟᴀᴅı.**\n\n🏷 **ɪꜱɪᴍ:** [{songname}]({url})\n💭 **ꜱᴏʜʙᴇᴛ:** `{chat_id}`\n💡 **ᴅᴜʀᴜᴍ:** `Çᴀʟıʏᴏʀ`\n🎧 **ᴛᴀʟᴇᴘ ᴇᴅᴇɴ:** {m.from_user.mention()}",
+                                    caption=f"🎶 **ᴠɪᴅᴇᴏ ᴀᴋışı ʙᴀşʟᴀᴅı.**\n\n🔘 **ɪꜱɪᴍ:** [{songname}]({url})\n💬 **ꜱᴏʜʙᴇᴛ:** `{chat_id}`\n👁‍🗨 **ᴅᴜʀᴜᴍ:** `Çᴀʟıʏᴏʀ`\n👉 **ᴛᴀʟᴇᴘ ᴇᴅᴇɴ:** {m.from_user.mention()}",
                                     reply_markup=keyboard,
                                 )
                             except Exception as ep:
@@ -174,16 +170,16 @@ async def vplay(client, m: Message):
     else:
         if len(m.command) < 2:
             await m.reply(
-                "» reply to an **video file** or **give something to search.**"
+                "»ʙɪʀ **ᴠɪᴅᴇᴏ ᴅᴏꜱʏᴀꜱıɴᴀ** ʏᴀɴıᴛ ᴠᴇʀɪɴ ᴠᴇʏᴀ **ᴀʀᴀʏᴀᴄᴀᴋ ʙɪʀ şᴇʏ ᴠᴇʀɪɴ.**"
             )
         else:
-            loser = await m.reply("🔎 **arıyor...**")
+            loser = await m.reply("🔎 **Aʀıʏᴏʀ...**")
             query = m.text.split(None, 1)[1]
             search = ytsearch(query)
             Q = 720
             amaze = HighQualityVideo()
             if search == 0:
-                await loser.edit("❌ **sonuç bulunamadı.**")
+                await loser.edit("❌ **ꜱᴏɴᴜç ʙᴜʟᴜɴᴀᴍᴀᴅı.**")
             else:
                 songname = search[0]
                 url = search[1]
@@ -196,7 +192,7 @@ async def vplay(client, m: Message):
                         await loser.delete()
                         await m.reply_photo(
                             photo=f"{IMG_1}",
-                            caption=f"💡 **ᴘᴀʀçᴀ ꜱıʀᴀʏᴀ ᴇᴋʟᴇɴᴅɪ**\n\n🏷 **ɪꜱɪᴍ:** [{songname}]({url})\n💭 **ꜱᴏʜʙᴇᴛ:** `{chat_id}`\n🎧 **ᴛᴀʟᴇᴘ ᴇᴅᴇɴ:** {m.from_user.mention()}\n🔢 **At position »** `{pos}`",
+                            caption=f"🎶 **ᴘᴀʀçᴀ ꜱıʀᴀʏᴀ ᴇᴋʟᴇɴᴅɪ**\n\n🔘 **ɪꜱɪᴍ:** [{songname}]({url})\n💬 **ꜱᴏʜʙᴇᴛ:** `{chat_id}`\n👉**ᴛᴀʟᴇᴘ ᴇᴅᴇɴ:** {m.from_user.mention()}\n↪️ **ꜱıʀᴀʏᴀ ᴀʟıɴᴀɴ»** `{pos}`",
                             reply_markup=keyboard,
                         )
                     else:
@@ -210,25 +206,21 @@ async def vplay(client, m: Message):
                             await loser.delete()
                             await m.reply_photo(
                                 photo=f"{IMG_2}",
-                                caption=f"💡 **ᴠɪᴅᴇᴏ ᴀᴋışı ʙᴀşʟᴀᴅı.**\n\n🏷 **ɪꜱɪᴍ:** [{songname}]({url})\n💭 **ꜱᴏʜʙᴇᴛ:** `{chat_id}`\n💡 **ᴅᴜʀᴜᴍ:** `çᴀʟıʏᴏʀ`\n🎧 **ᴛᴀʟᴇᴘ ᴇᴅᴇɴ:** {m.from_user.mention()}",
+                                caption=f"🎶 **ᴠɪᴅᴇᴏ ᴀᴋışı ʙᴀşʟᴀᴅı.**\n\n🔘 **ɪꜱɪᴍ:** [{songname}]({url})\n💬 **ꜱᴏʜʙᴇᴛ:** `{chat_id}`\n👁‍🗨 **ᴅᴜʀᴜᴍ:** `çᴀʟıʏᴏʀ`\n👉 **ᴛᴀʟᴇᴘ ᴇᴅᴇɴ:** {m.from_user.mention()}",
                                 reply_markup=keyboard,
                             )
                         except Exception as ep:
                             await m.reply_text(f"🚫 ʜᴀᴛᴀ: `{ep}`")
 
 
-@Client.on_message(command(["vstream", f"vstream@{BOT_USERNAME}"]) & other_filters)
+@Client.on_message(command(["radio", f"vstream@{BOT_USERNAME}"]) & other_filters)
 async def vstream(client, m: Message):
 
     keyboard = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton(
-                    text="✨ ɢʀᴜᴘ", url=f"https://t.me/{GROUP_SUPPORT}"
-                ),
-                InlineKeyboardButton(
-                    text="🌻 ᴋᴀɴᴀʟ", url=f"https://t.me/{UPDATES_CHANNEL}"
-                ),
+                InlineKeyboardButton(text="• Mᴇɴᴜ", callback_data="cbmenu"),
+                InlineKeyboardButton(text="• Kᴀᴘᴀᴛ", callback_data="cls"),
             ]
         ]
     )
@@ -272,7 +264,7 @@ async def vstream(client, m: Message):
                 await loser.delete()
                 await m.reply_photo(
                     photo=f"{IMG_1}",
-                    caption=f"💡 **Track added to the queue**\n\n💭 **Chat:** `{chat_id}`\n🎧 **Request by:** {m.from_user.mention()}\n🔢 **At position »** `{pos}`",
+                    caption=f"💡 **Track added to the queue**\n\n💭 **Chat:** `{chat_id}`\n🎧 **Request by:** {m.from_user.mention()}\n↪️ **ꜱıʀᴀʏᴀ ᴀʟıɴᴀɴ »** `{pos}`",
                     reply_markup=keyboard,
                 )
             else:
@@ -292,7 +284,7 @@ async def vstream(client, m: Message):
                     await loser.delete()
                     await m.reply_photo(
                         photo=f"{IMG_2}",
-                        caption=f"💡 **[ᴄᴀɴʟı ᴀᴋış ᴠɪᴅᴇᴏꜱᴜ]({link}) ʙᴀşʟᴀᴅı.**\n\n💭 **ꜱᴏʜʙᴇᴛ:** `{chat_id}`\n💡 **ᴅᴜʀᴜᴍ:** `çᴀʟıʏᴏʀ`\n🎧 **ᴛᴀʟᴇᴘ ᴇᴅᴇɴ:** {m.from_user.mention()}",
+                        caption=f"💡 **[ᴄᴀɴʟı ᴀᴋış ᴠɪᴅᴇᴏꜱᴜ]({link}) ʙᴀşʟᴀᴅı.**\n\n💬 **ꜱᴏʜʙᴇᴛ:** `{chat_id}`\n👁‍🗨 **ᴅᴜʀᴜᴍ:** `çᴀʟıʏᴏʀ`\n👉 **ᴛᴀʟᴇᴘ ᴇᴅᴇɴ:** {m.from_user.mention()}",
                         reply_markup=keyboard,
                     )
                 except Exception as ep:

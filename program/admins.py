@@ -1,4 +1,5 @@
 from cache.admins import admins
+from pyrogram import Client, filters
 from config import BOT_USERNAME, GROUP_SUPPORT, IMG_3, UPDATES_CHANNEL
 from driver.decorators import authorized_users_only
 from driver.filters import command, other_filters
@@ -7,7 +8,22 @@ from driver.utils import skip_current_song, skip_item
 from driver.veez import call_py
 from pyrogram import Client
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
+from pyrogram.types import (
+    CallbackQuery,
+    InlineKeyboardButton,
+    InlineKeyboardMarkup,
+    Message,
+)
 
+
+bttn = InlineKeyboardMarkup(
+    [[InlineKeyboardButton("🔙 Gᴇʀɪ", callback_data="cbmenu")]]
+)
+
+
+bcl = InlineKeyboardMarkup(
+    [[InlineKeyboardButton("🗑 Kᴀᴘᴀᴛ", callback_data="cls")]]
+)
 
 @Client.on_message(command(["reload", f"reload@{BOT_USERNAME}"]) & other_filters)
 @authorized_users_only
@@ -30,12 +46,8 @@ async def skip(client, m: Message):
     keyboard = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton(
-                    text="✨ ɢʀᴏᴜᴘ", url=f"https://t.me/{GROUP_SUPPORT}"
-                ),
-                InlineKeyboardButton(
-                    text="🌻 ᴋᴀɴᴀʟ", url=f"https://t.me/{UPDATES_CHANNEL}"
-                ),
+                InlineKeyboardButton(text="• Mᴇɴᴜ", callback_data="cbmenu"),
+                InlineKeyboardButton(text="• Kᴀᴘᴀᴛ", callback_data="cls"),
             ]
         ]
     )
@@ -50,7 +62,7 @@ async def skip(client, m: Message):
         else:
             await m.reply_photo(
                 photo=f"{IMG_3}",
-                caption=f"⏭ **ʙɪʀ ꜱᴏɴʀᴀᴋɪ ᴘᴀʀçᴀʏᴀ ᴀᴛʟᴀɴᴅı.**\n\n🏷 **ɪꜱɪᴍ:** [{op[0]}]({op[1]})\n💭 **ꜱᴏʜʙᴇᴛ:** `{chat_id}`\n💡 **ᴅᴜʀᴜᴍ:** `Çᴀʟışıʏᴏʀ`\n🎧 **ᴛᴀʟᴇᴘ ᴇᴅᴇɴ:** {m.from_user.mention()}",
+                caption=f"⏭ **ʙɪʀ ꜱᴏɴʀᴀᴋɪ ᴘᴀʀçᴀʏᴀ ᴀᴛʟᴀɴᴅı.**\n\n🔘 **ɪꜱɪᴍ:** [{op[0]}]({op[1]})\n💬 **ꜱᴏʜʙᴇᴛ:** `{chat_id}`\n👁‍🗨 **ᴅᴜʀᴜᴍ:** `Çᴀʟıʏᴏʀ`\n👉 **ᴛᴀʟᴇᴘ ᴇᴅᴇɴ:** {m.from_user.mention()}",
                 reply_markup=keyboard,
             )
     else:
@@ -104,6 +116,46 @@ async def pause(client, m: Message):
             await m.reply(f"🚫 **ʜᴀᴛᴀ:**\n\n`{e}`")
     else:
         await m.reply("❌ **ᴀᴋışᴛᴀ ʜɪç ʙɪʀ şᴇʏ ʏᴏᴋ**")
+        
+
+@Client.on_callback_query(filters.regex("cbmute"))
+async def cbmute(_, query: CallbackQuery):
+    if query.message.sender_chat:
+        return await query.answer("ʙɪʀ ᴀɴᴏɴɪᴍ ʏöɴᴇᴛɪᴄɪꜱɪɴɪᴢ !\n\n» ʏöɴᴇᴛɪᴄɪ ʜᴀᴋʟᴀʀıɴᴅᴀɴ ᴋᴜʟʟᴀɴıᴄı ʜᴇꜱᴀʙıɴᴀ ɢᴇʀɪ ᴅöɴüɴ.")
+    a = await _.get_chat_member(query.message.chat.id, query.from_user.id)
+    if not a.can_manage_voice_chats:
+        return await query.answer("❗️ ʏᴀʟɴıᴢᴄᴀ ʙᴜ ᴅüɢᴍᴇʏᴇ ᴅᴏᴋᴜɴᴀʙɪʟᴇɴ ꜱᴇꜱʟɪ ꜱᴏʜʙᴇᴛʟᴇʀɪ ʏöɴᴇᴛᴍᴇ ɪᴢɴɪɴᴇ ꜱᴀʜɪᴘ ʏöɴᴇᴛɪᴄɪ ❗️", show_alert=True)
+    chat_id = query.message.chat.id
+    if chat_id in QUEUE:
+        try:
+            await call_py.mute_stream(chat_id)
+            await query.edit_message_text(
+                "🔇 ᴜꜱᴇʀʙᴏᴛ ʙᴀşᴀʀıʏʟᴀ ᴋᴀᴘᴀᴛıʟᴅı", reply_markup=bttn
+            )
+        except Exception as e:
+            await query.edit_message_text(f"🚫 **ʜᴀᴛᴀ:**\n\n`{e}`", reply_markup=bcl)
+    else:
+        await query.edit_message_text("❌ **ᴀᴋışᴛᴀ ʜɪçʙɪʀ şᴇʏ**", reply_markup=bcl)
+
+
+@Client.on_callback_query(filters.regex("cbunmute"))
+async def cbunmute(_, query: CallbackQuery):
+    if query.message.sender_chat:
+        return await query.answer("ʙɪʀ ᴀɴᴏɴɪᴍ ʏöɴᴇᴛɪᴄɪꜱɪɴɪᴢ !\n\n» ʏöɴᴇᴛɪᴄɪ ʜᴀᴋʟᴀʀıɴᴅᴀɴ ᴋᴜʟʟᴀɴıᴄı ʜᴇꜱᴀʙıɴᴀ ɢᴇʀɪ ᴅöɴüɴ.")
+    a = await _.get_chat_member(query.message.chat.id, query.from_user.id)
+    if not a.can_manage_voice_chats:
+        return await query.answer("💡 ʏᴀʟɴıᴢᴄᴀ ʙᴜ ᴅüɢᴍᴇʏᴇ ᴅᴏᴋᴜɴᴀʙɪʟᴇɴ ꜱᴇꜱʟɪ ꜱᴏʜʙᴇᴛʟᴇʀɪ ʏöɴᴇᴛᴍᴇ ɪᴢɴɪɴᴇ ꜱᴀʜɪᴘ ʏöɴᴇᴛɪᴄɪ !", show_alert=True)
+    chat_id = query.message.chat.id
+    if chat_id in QUEUE:
+        try:
+            await call_py.unmute_stream(chat_id)
+            await query.edit_message_text(
+                "🔊 ᴜꜱᴇʀʙᴏᴛ ʙᴀşᴀʀıʏʟᴀ ᴀçıʟᴅı", reply_markup=bttn
+            )
+        except Exception as e:
+            await query.edit_message_text(f"🚫 **ʜᴀᴛᴀ:**\n\n`{e}`", reply_markup=bcl)
+    else:
+        await query.edit_message_text("❌ **ᴀᴋışᴛᴀ ʜɪçʙɪʀ şᴇʏ**", reply_markup=bcl)
 
 
 @Client.on_message(

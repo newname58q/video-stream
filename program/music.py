@@ -51,22 +51,17 @@ async def ytdl(link):
 
 
 @Client.on_message(command(["oynat", f"oynat@{BOT_USERNAME}"]) & other_filters)
-@authorized_users_only
-async def oynat(_, m: Message):
-
+async def play(c: Client, m: Message):
+    replied = m.reply_to_message
+    chat_id = m.chat.id
     keyboard = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton(
-                    text="✨ ɢʀᴏᴜᴘ", url=f"https://t.me/{GROUP_SUPPORT}"
-                ),
-                InlineKeyboardButton(
-                    text="🌻 ᴋᴀɴᴀʟ", url=f"https://t.me/{UPDATES_CHANNEL}"
-                ),
+                InlineKeyboardButton(text="• Mᴇɴᴜ", callback_data="cbmenu"),
+                InlineKeyboardButton(text="• Kᴀᴘᴀᴛ", callback_data="cls"),
             ]
         ]
     )
-
     replied = m.reply_to_message
     chat_id = m.chat.id
     if replied:
@@ -86,7 +81,7 @@ async def oynat(_, m: Message):
                 await suhu.delete()
                 await m.reply_photo(
                     photo=f"{IMG_1}",
-                    caption=f"💡 **ᴘᴀʀçᴀ ꜱıʀᴀʏᴀ ᴇᴋʟᴇɴᴅɪ **\n\n🏷 **ᴀᴅı:** [{songname}]({link})\n💭 **ꜱᴏʜʙᴇᴛ:** `{chat_id}`\n🎧 **ᴛᴀʟᴇᴘ ᴇᴅᴇɴ:** {m.from_user.mention()}\n🔢 **At position »** `{pos}`",
+                    caption=f"💡 **ᴘᴀʀçᴀ ꜱıʀᴀʏᴀ ᴇᴋʟᴇɴᴅɪ **\n\n🔘 **ɪꜱɪᴍ:** [{songname}]({link})\n💬 **ꜱᴏʜʙᴇᴛ:** `{chat_id}`\n👉 **ᴛᴀʟᴇᴘ ᴇᴅᴇɴ:** {m.from_user.mention()}\n↪️ **ꜱıʀᴀʏᴀ ᴀʟıɴᴀɴ »** `{pos}`",
                     reply_markup=keyboard,
                 )
             else:
@@ -101,7 +96,7 @@ async def oynat(_, m: Message):
                 await suhu.delete()
                 await m.reply_photo(
                     photo=f"{IMG_2}",
-                    caption=f"💡 **ᴍᴜꜱɪᴄ ᴀᴋışı ʙᴀşʟᴀᴛıʟᴅı.**\n\n🏷 **ɪꜱɪᴍ:** [{songname}]({link})\n💭 **ꜱᴏʜʙᴇᴛ:** `{chat_id}`\n💡 **ᴅᴜʀᴜᴍ:** `Playing`\n🎧 **ᴛᴀʟᴇᴘ ᴇᴅᴇɴ:** {m.from_user.mention()}",
+                    caption=f"💡 **ᴍᴜꜱɪᴄ ᴀᴋışı ʙᴀşʟᴀᴛıʟᴅı.**\n\n🔘 **ɪꜱɪᴍ:** [{songname}]({link})\n💬 **ꜱᴏʜʙᴇᴛ:** `{chat_id}`\n👁‍🗨 **ᴅᴜʀᴜᴍ:** `Playing`\n👉 **ᴛᴀʟᴇᴘ ᴇᴅᴇɴ:** {m.from_user.mention()}",
                     reply_markup=keyboard,
                 )
         else:
@@ -129,7 +124,7 @@ async def oynat(_, m: Message):
                             await suhu.delete()
                             await m.reply_photo(
                                 photo=f"{IMG_1}",
-                                caption=f"💡 **ᴘᴀʀçᴀ ꜱıʀᴀʏᴀ ᴇᴋʟᴇɴᴅɪ **\n\n🏷 **ɪꜱɪᴍ:** [{songname}]({url})\n💭 **ꜱᴏʜʙᴇᴛ:** `{chat_id}`\n🎧 **ᴛᴀʟᴇᴘ ᴇᴅᴇɴ:** {m.from_user.mention()}\n🔢 **At position »** `{pos}`",
+                                caption=f"💡 **ᴘᴀʀçᴀ ꜱıʀᴀʏᴀ ᴇᴋʟᴇɴᴅɪ **\n\n🔘 **ɪꜱɪᴍ:** [{songname}]({url})\n💬 **ꜱᴏʜʙᴇᴛ:** `{chat_id}`\n👉 **ᴛᴀʟᴇᴘ ᴇᴅᴇɴ:** {m.from_user.mention()}\n↪️ **ꜱıʀᴀʏᴀ ᴀʟıɴᴀɴ »** `{pos}`",
                                 reply_markup=keyboard,
                             )
                         else:
@@ -145,7 +140,7 @@ async def oynat(_, m: Message):
                                 await suhu.delete()
                                 await m.reply_photo(
                                     photo=f"{IMG_2}",
-                                    caption=f"💡 **music akışı başladı.**\n\n🏷 **ɪꜱɪᴍ:** [{songname}]({url})\n💭 **ꜱᴏʜʙᴇᴛ:** `{chat_id}`\n💡 **ᴅᴜʀᴜᴍ:** `çᴀʟıʏᴏʀ`\n🎧 **Talep eden:** {m.from_user.mention()}",
+                                    caption=f"💡 **music akışı başladı.**\n\n🔘 **ɪꜱɪᴍ:** [{songname}]({url})\n💬 **ꜱᴏʜʙᴇᴛ:** `{chat_id}`\n👁‍🗨 **ᴅᴜʀᴜᴍ:** `çᴀʟıʏᴏʀ`\n🎧 **Talep eden:** {m.from_user.mention()}",
                                     reply_markup=keyboard,
                                 )
                             except Exception as ep:
@@ -157,7 +152,7 @@ async def oynat(_, m: Message):
                 "» şᴜ ᴀɴ ᴄᴇᴠᴀᴘ ᴠᴇʀ **ꜱᴇꜱ ᴅᴏꜱʏᴀꜱı** ᴠᴇʏᴀ **ᴀʀᴀᴍᴀᴋ ɪçɪɴ ʙɪʀ şᴇʏ ᴠᴇʀ.**"
             )
         else:
-            suhu = await m.reply("🔎 **arıyor...**")
+            suhu = await m.reply("🔎 **Aʀᴀɴıʏᴏʀ...**")
             query = m.text.split(None, 1)[1]
             search = ytsearch(query)
             if search == 0:
@@ -174,7 +169,7 @@ async def oynat(_, m: Message):
                         await suhu.delete()
                         await m.reply_photo(
                             photo=f"{IMG_1}",
-                            caption=f"💡 **ᴘᴀʀçᴀ ꜱıʀᴀʏᴀ ᴇᴋʟᴇɴᴅɪ**\n\n🏷 **ɪꜱɪᴍ:** [{songname}]({url})\n💭 **ꜱᴏʜʙᴇᴛ:** `{chat_id}`\n🎧 **ᴛᴀʟᴇᴘ ᴇᴅᴇɴ:** {m.from_user.mention()}\n🔢 **At position »** `{pos}`",
+                            caption=f"💡 **ᴘᴀʀçᴀ ꜱıʀᴀʏᴀ ᴇᴋʟᴇɴᴅɪ**\n\n🔘 **ɪꜱɪᴍ:** [{songname}]({url})\n💬 **ꜱᴏʜʙᴇᴛ:** `{chat_id}`\n👉 **ᴛᴀʟᴇᴘ ᴇᴅᴇɴ:** {m.from_user.mention()}\n↪️ **ꜱıʀᴀʏᴀ ᴀʟıɴᴀɴ »** `{pos}`",
                             reply_markup=keyboard,
                         )
                     else:
@@ -190,7 +185,7 @@ async def oynat(_, m: Message):
                             await suhu.delete()
                             await m.reply_photo(
                                 photo=f"{IMG_2}",
-                                caption=f"💡 **ᴍᴜꜱɪᴄ ᴀᴋışı ʙᴀşʟᴀᴅı.**\n\n🏷 **ɪꜱɪᴍ:** [{songname}]({url})\n💭 **ꜱᴏʜʙᴇᴛ:** `{chat_id}`\n💡 **ᴅᴜʀᴜᴍ:** `ᴏʏɴᴀᴛıʟᴀɴ`\n🎧 **ᴛᴀʟᴇᴘ ᴇᴅᴇɴ:** {m.from_user.mention()}",
+                                caption=f"💡 **ᴍᴜꜱɪᴄ ᴀᴋışı ʙᴀşʟᴀᴅı.**\n\n🔘 **ɪꜱɪᴍ:** [{songname}]({url})\n💬 **ꜱᴏʜʙᴇᴛ:** `{chat_id}`\n👁‍🗨 **ᴅᴜʀᴜᴍ:** `ᴏʏɴᴀᴛıʟᴀɴ`\n👉 **ᴛᴀʟᴇᴘ ᴇᴅᴇɴ:** {m.from_user.mention()}",
                                 reply_markup=keyboard,
                             )
                         except Exception as ep:
@@ -238,7 +233,7 @@ async def radio(_, m: Message):
                 await suhu.delete()
                 await m.reply_photo(
                     photo=f"{IMG_1}",
-                    caption=f"💡 **ᴘᴀʀçᴀ ꜱıʀᴀʏᴀ ᴇᴋʟᴇɴᴅɪ **\n\n💭 **ꜱᴏʜʙᴇᴛ:** `{chat_id}`\n🎧 **ᴛᴀʟᴇᴘ ᴇᴅᴇɴ:** {m.from_user.mention()}\n🔢 **At position »** `{pos}`",
+                    caption=f"💡 **ᴘᴀʀçᴀ ꜱıʀᴀʏᴀ ᴇᴋʟᴇɴᴅɪ **\n\n💭 **ꜱᴏʜʙᴇᴛ:** `{chat_id}`\n👉 **ᴛᴀʟᴇᴘ ᴇᴅᴇɴ:** {m.from_user.mention()}\n↪️ **ꜱıʀᴀʏᴀ ᴀʟıɴᴀɴ »** `{pos}`",
                     reply_markup=keyboard,
                 )
             else:
@@ -254,7 +249,7 @@ async def radio(_, m: Message):
                     await suhu.delete()
                     await m.reply_photo(
                         photo=f"{IMG_2}",
-                        caption=f"💡 **[Radio live]({link}) ᴀᴋış ʙᴀşʟᴀᴅı.**\n\n💭 **ꜱᴏʜʙᴇᴛ:** `{chat_id}`\n💡 **ᴅᴜʀᴜᴍ:** `Playing`\n🎧 **ᴛᴀʟᴇᴘ ᴇᴅᴇɴ:** {m.from_user.mention()}",
+                        caption=f"💡 **[Radio live]({link}) ᴀᴋış ʙᴀşʟᴀᴅı.**\n\n💬 **ꜱᴏʜʙᴇᴛ:** `{chat_id}`\n👁‍🗨 **ᴅᴜʀᴜᴍ:** `Çᴀʟıʏᴏʀ`\n👉 **ᴛᴀʟᴇᴘ ᴇᴅᴇɴ:** {m.from_user.mention()}",
                         reply_markup=keyboard,
                     )
                 except Exception as ep:
