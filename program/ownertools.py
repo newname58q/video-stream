@@ -9,7 +9,6 @@ from os import environ, execle
 import psutil
 from pyrogram import Client, filters
 from pyrogram.types import Message
-from zaidmusic.song import get_text, humanbytes
 from helpers.filters import command
 from helpers.dbtools import main_broadcast_handler
 from helpers.decorators import sudo_users_only
