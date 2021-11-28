@@ -42,6 +42,11 @@
         "SUDO_USERS": {
             "description": "list of user ids to be added to sudo member list",
             "required": true
+	    },
+        "LOG_CHANNEL": {
+            "description": "özel bir kanal oluşturun ve kanal kimliğini alın, botunuzu kanala yönetici olarak da ekleyin",
+            "required": true,
+            "value": ""
         },
         "DURATION_LIMIT": {
             "description": "maximum duration limit for downloadable videos (in minutes)",
