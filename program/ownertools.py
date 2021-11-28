@@ -7,8 +7,6 @@ from functools import wraps
 from os import environ, execle
 
 import psutil
-from git import Repo
-from git.exc import GitCommandError, InvalidGitRepositoryError
 from pyrogram import Client, filters
 from pyrogram.types import Message
 from zaidmusic.song import get_text, humanbytes
