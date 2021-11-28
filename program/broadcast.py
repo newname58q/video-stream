@@ -13,6 +13,14 @@ from pyrogram import client as veez
 from config import SUDO_USERS
 
 
+
+@Client.on_message(
+    filters.private
+    & filters.command("broadcast")
+    & filters.user(OWNER_ID)
+    & filters.reply
+
+
 @Client.on_message(filters.command(["gcast"]))
 async def broadcast(_, message: Message):
     sent = 0
