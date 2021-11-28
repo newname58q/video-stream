@@ -7,7 +7,6 @@ from functools import wraps
 from os import environ, execle
 
 import psutil
-from pyrogram import Client, filters
 from pyrogram.types import Message
 from helpers.filters import command
 from helpers.dbtools import main_broadcast_handler
