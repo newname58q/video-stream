@@ -45,3 +45,6 @@ async def broadcast(_, message: Message):
     & filters.command("broadcast")
     & filters.user(OWNER_ID)
     & filters.reply
+)
+async def broadcast_handler_open(_, m: Message):
+    await main_broadcast_handler(m, db)
