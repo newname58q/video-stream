@@ -21,21 +21,24 @@ async def broadcast(_, message: Message):
     if message.from_user.id not in SUDO_USERS:
         return
     else:
-        wtf = await message.reply("`ʙʀᴏᴀᴅᴄᴀꜱᴛ ʙᴀꜱʟᴀᴅɪ...`")
+        wtf = await message.reply("ʙʀᴏᴀᴅᴄᴀꜱᴛ ʙᴀꜱʟᴀᴅɪ...")
         if not message.reply_to_message:
             await wtf.edit("ʟᴜᴛꜰᴇɴ ʏᴀʏɪɴɪ ʙᴀꜱʟᴀᴛᴍᴀᴋ ɪᴄɪɴ ʙɪʀ ᴍᴇꜱᴀᴊᴀ ᴄᴇᴠᴀᴘ ᴠᴇʀɪɴ!")
             return
         lmao = message.reply_to_message.text
-        async for dialog in BOT.iter_dialogs():
-            try:
-                await BOT.send_message(dialog.chat.id, lmao)
-                sent = sent + 1
-                await wtf.edit(
-                    f"`ʙʀᴏᴀᴅᴄᴀꜱᴛ...` \n\n**ɢᴏɴᴅᴇʀɪʟᴅɪ:** `{sent}` ᴄʜᴀᴛ \n**ʙᴀꜱᴀʀɪꜱɪᴢ:** {failed} ᴄʜᴀᴛ"
-                )
-                await asyncio.sleep(3)
-            except:
-                failed = failed + 1
-        await message.reply_text(
-            f"`ʙʀᴏᴀᴅᴄᴀꜱᴛ ʙᴀꜱᴀʀɪʟɪ` \n\n**ɢᴏɴᴅᴇʀɪʟᴅɪ:** `{sent}` ᴄʜᴀᴛ \n**ʙᴀꜱᴀʀɪꜱɪᴢ:** {failed} chats"
-        )
+        try:
+            async for dialog in USER.iter_dialogs():
+                try:
+                    await BOT.send_message(dialog.chat.id, lmao)
+                    sent = sent + 1
+                    await wtf.edit(
+                        f"ʙʀᴏᴀᴅᴄᴀꜱᴛ... \n\nɢᴏɴᴅᴇʀɪʟᴅɪ: {sent} ᴄʜᴀᴛ \nʙᴀꜱᴀʀɪꜱɪᴢ: {failed} ᴄʜᴀᴛ"
+                    )
+                    await asyncio.sleep(3)
+                except:
+                    failed = failed + 1
+            await message.reply_text(
+                f"ʙʀᴏᴀᴅᴄᴀꜱᴛ ʙᴀꜱᴀʀɪʟɪ \n\nɢᴏɴᴅᴇʀɪʟᴅɪ: {sent} ᴄʜᴀᴛ \nʙᴀꜱᴀʀɪꜱɪᴢ: {failed} chats"
+            )
+        except:
+            pass
